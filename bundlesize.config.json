@@ -1,0 +1,8 @@
+{
+  "files": [
+    {
+      "path": "build/static/js/*.js",
+      "maxSize": "250 kB"
+    }
+  ]
+}

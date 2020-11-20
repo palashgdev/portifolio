@@ -1,0 +1,7 @@
+[defaults]
+project = palashgdev
+org = palash-gupta
+url = https://sentry.io/
+
+[auth]
+token = e0d33cc0f4f9479fa42cb66855cf9550c8ca6d3c678b4836bf685db527bdcc75

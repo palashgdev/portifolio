@@ -1,0 +1,80 @@
+{
+  "name": "palashgdev",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
+    "@moyuyc/husky": "^1.1.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "0.21.0",
+    "braft-editor": "2.3.9",
+    "braft-extensions": "0.1.0",
+    "bundlesize": "^0.18.0",
+    "draft-js-prism": "1.0.6",
+    "emotion-theming": "^10.0.27",
+    "firebase": "^7.8.2",
+    "nprogress": "^0.2.0",
+    "prettier": "^1.19.1",
+    "prismjs": "1.19.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.0",
+    "react-snap": "1.23.0"
+  },
+  "scripts": {
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "CI=true react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test",
+    "eject": "react-scripts eject",
+    "bundlesize": "bundlesize",
+    "deploy": "npm run build && firebase deploy",
+    "code_quality": "eslint \"./src/**/*.js\"",
+    "postbuild": "react-snap",
+    "jest": "jest --watch"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "reactSnap": {
+    "asyncScriptTags": true,
+    "source": "build",
+    "include": [
+      "/login",
+      "/",
+      "/blogs",
+      "/allblogs"
+    ],
+    "minifyHtml": {
+      "collapseWhitespace": true,
+      "removeComments": true
+    },
+    "skipThirdPartyRequests": true
+  },
+  "husky": {
+    "installType": "overwrite",
+    "hooks": {
+      "pre-commit": "npm run code_quality",
+      "pre-push": "npm run test && npm run bundlesize && echo You pushed the code 🔥"
+    }
+  },
+  "devDependencies": {
+    "@testing-library/react": "9.5.0",
+    "eslint-plugin-react": "^7.18.3",
+    "@firebase/testing": "0.20.5"
+  }
+}
